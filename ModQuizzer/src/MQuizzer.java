@@ -11,16 +11,17 @@ public class MQuizzer
 		public static void printNumOfQuestions()
 			{
 				Scanner userInput=new Scanner (System.in);
-				System.out.println("Please write the number of questions you would like to answer");
+				System.out.println("Please write the number of questions you would like to answer.");
+				
 				int numberOfQuestions=userInput.nextInt();
 				int counter=0;
 				for (int i=0; i<numberOfQuestions; i++)
 					{				
-						int randomNumber=(int)(Math.random()*20)+1;
-						int randomNumber2=(int)(Math.random()*20)+1;
-						int randomNumber3=(int)(Math.random()*10)+1;
-						int randomNumber4=(int)(Math.random()*20)+6;
-					if (i%4==0)
+						int randomNumber=(int)(Math.random()*20)+10;
+						int randomNumber2=(int)(Math.random()*30)+15;						
+						int randomNumber3=(int)(Math.random()*20)+10;
+						int randomNumber4=(int)(Math.random()*10)+1;
+					if (i%10==0)
 						{
 							System.out.println();
 							System.out.println("What is " + randomNumber + " % " + randomNumber + "?");
@@ -28,49 +29,49 @@ public class MQuizzer
 							if (answer==(randomNumber%randomNumber))
 								{
 									System.out.println("Your answer was correct!");
-									
+									counter++;
 									System.out.println();
 								}
 						else
 							{
-								System.out.println("Sorry, your answer was wrong! The correct answer is " + randomNumber2%randomNumber);
+								System.out.println("Sorry, your answer was wrong! The correct answer is " + randomNumber%randomNumber);
 								System.out.println();
 							}
 					}
 										
-					else if (i%2==0)
+					else if (i%7==1)
 						{
-							System.out.println("What is " + randomNumber3 + " % " + randomNumber4 + "?");
+							System.out.println("What is " + randomNumber4 + " % " + randomNumber3 + "?");
 							int answer=userInput.nextInt();
-							if (answer==(randomNumber3%randomNumber4))
+							if (answer==(randomNumber4%randomNumber3))
 								{
 									System.out.println("Your answer is correct!");
-									
-									System.out.println();
-								}
-							else
-								{
-									System.out.println("Sorry, your answer was wrong! The correct answer is " + randomNumber3%randomNumber4);
 									counter++;
 									System.out.println();
 								}
-						}
 							else
+								{
+									System.out.println("Sorry, your answer was wrong! The correct answer is " + randomNumber4%randomNumber3);
+									
+									System.out.println();
+								}
+						}
+					else 
 								{
 									System.out.println("What is " + randomNumber2 + " % " + randomNumber + "?");
 									int answer=userInput.nextInt();
 									if (answer==(randomNumber2%randomNumber))
 										{
-											System.out.println("Your answer is correct!");
-											
+											System.out.println("Your answer is correct!");											
+											counter++;
 											System.out.println();
 										}
 									else
 										{
 											System.out.println("Sorry, your answer was wrong! The correct answer is " + randomNumber2%randomNumber);
 											
-										
-								
+											System.out.println();
+																																			
 								}
 						}
 					System.out.println();
